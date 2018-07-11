@@ -6,7 +6,7 @@ class Scraper
   attr_accessor :name, :location, :profile_url
 
   def self.scrape_index_page(index_url)
-    student_array = []
+    students_array = []
     student = {}
     Nokogiri::HTML(open(index_url)).css(".roster-card-container .student-card").each do |s|
       students = {
@@ -14,9 +14,9 @@ class Scraper
         :location => s.css("p").text,
         :profile_url => s.css("a").text
       }
-      student_array.push(student)
+      students_array.push(student)
     end
-    student_array
+    students_array
   end
 
   def self.scrape_profile_page(profile_url)
