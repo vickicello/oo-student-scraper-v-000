@@ -3,8 +3,6 @@ require 'pry'
 
 class Scraper
 
-  attr_accessor :name, :location, :profile_url
-
   def self.scrape_index_page(index_url)
     index_url = open('./fixtures/student-site/index.html')
     doc =  Nokogiri::HTML(index_url)
@@ -14,8 +12,7 @@ class Scraper
       student[:name] = s.css("h4").text
       student[:location] = s.css("p").text
       student[:profile_url] = s.css("a").attribute("href").value
-    end
-      students_array.push(student)
+      students_array << student
     end
     students_array
   end
