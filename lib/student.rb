@@ -15,10 +15,7 @@ class Student
     #  Use the #send method to acheive this.
     # This method should also add the newly created student to the
     # Student class' @@all array of all students.
-    # You'll need to create this class variable and set it equal
-    # to an empty array at the top of your class.
-    # Push self into the array at the end of the #initialize method.
-
+    @@all << self
 
   end
 
