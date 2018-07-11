@@ -12,7 +12,7 @@ class Scraper
     student = {}
     doc.css(".roster-card-container .student-card").each do |s|
       student[:name] = s.css("h4").text
-      student[:location] = s.css("p").text
+      student[:location] = s.css(".student-location").text
       student[:profile_url] = s.css("a").attribute("href").value
       students_array << student
     end
