@@ -30,7 +30,7 @@ class Scraper
         :profile_quote => Nokogiri::HTML(open(profile_url)).css("div.profile_quote").text
         :bio => Nokogiri::HTML(open(profile_url)).css(".description-holder").css("p").text
       }
-      profile.delete_if {|key, value| value == nil}
+      profile.delete_if { |key, value| value == nil }
   end
 
-end
+
