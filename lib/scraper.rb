@@ -11,11 +11,10 @@ class Scraper
     students_array = []
     student = {}
     doc.css(".roster-card-container .student-card").each do |s|
-      student = {
-        :name => s.css("h4").text,
-        :location => s.css("p").text,
-        :profile_url => s.css("a").attribute("href").value
-      }
+      student[:name] = s.css("h4").text
+      student[:location] = s.css("p").text
+      student[:profile_url] = s.css("a").attribute("href").value
+    end
       students_array.push(student)
     end
     students_array
