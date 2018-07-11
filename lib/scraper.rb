@@ -17,7 +17,7 @@ class Scraper
     # profile_url =
     # return value - hash in which the key/value pairs describe an individual student.
     # Some students don't have a twitter/other social link. account for that
-    # attributes to scrape : twitter url, linkedin url, github url, 
+    # attributes to scrape : twitter url, linkedin url, github url,
     # blog url, profile quote, and bio.
     # ex: => {:twitter=>"http://twitter.com/flatironschool",
     #   :linkedin=>"https://www.linkedin.com/in/flatironschool",
