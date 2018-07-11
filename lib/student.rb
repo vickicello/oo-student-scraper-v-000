@@ -29,12 +29,12 @@ class Student
   end
 
   def add_student_attributes(attributes_hash)
-    # instance method takes in a hash whose key/value pairs describe 
-    # additional attributes of an individual student. 
-    # call student.add_student_attributes with the return value of the 
+    # instance method takes in a hash whose key/value pairs describe
+    # additional attributes of an individual student.
+    # call student.add_student_attributes with the return value of the
     # Scraper.scrape_profile_page method as the argument.
-    # It should iterate over the given hash and use metaprogramming to 
-    # dynamically assign the student attributes and values in accordance 
+    # It should iterate over the given hash and use metaprogramming to
+    # dynamically assign the student attributes and values in accordance
     # with the key/value pairs of the hash. Use the #send method to achieve this.
 # The return value of this method should be the student itself. Use the self keyword
   end
