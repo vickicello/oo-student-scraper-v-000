@@ -14,7 +14,7 @@ class Scraper
       student[:name] = s.css("h4").text
       student[:location] = s.css(".student-location").text
       student[:profile_url] = s.css("a").attribute("href").value
-      students_array << {name: name, location: location, profile_url: profile_url}
+      students_array << { name: name, location: location, profile_url: profile_url }
     end
     students_array
   end
