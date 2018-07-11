@@ -21,10 +21,10 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     html = open(profile_url)
-    doc = Nokogiri::HTML(html)
+    doc = Nokogiri::HTML(opwn(profile_url))
     profile = {}
     profile[:profile_quote] = doc.css(".profile_quote").text
-    profile[:bio] = doc.css(".description-holder").css("p").text
+    profile[:bio] = doc.css(".description-holder p").text
     links = doc.css(".social-icon-container").css("a")
     links.map do |l|
       if l['href'].include?("twitter")
