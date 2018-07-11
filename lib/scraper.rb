@@ -32,5 +32,4 @@ class Scraper
       }
       profile.delete_if { |key, value| value == nil }
   end
-
-
+end
