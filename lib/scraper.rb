@@ -7,11 +7,16 @@ class Scraper
 
   def self.scrape_index_page(index_url)
     student_array = []
-    students = {}
-    Nokogiri::HTML(open(index_url)).css
-
-    #  The keys of the individual student hashes should be :name, :location and :profile_url.
-
+    student = {}
+    Nokogiri::HTML(open(index_url)).css(".roster-card-container .student-card").each do |s|
+      students = {
+        :name => s.css("h4").text,
+        :location => s.css("p").text,
+        :profile_url => s.css("a").text
+      }
+      student_array.push(student)
+    end
+    student_array
   end
 
   def self.scrape_profile_page(profile_url)
