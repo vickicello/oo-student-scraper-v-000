@@ -6,13 +6,14 @@ class Scraper
   attr_accessor :name, :location, :profile_url
 
   def self.scrape_index_page(index_url)
+    index_url = open('./fixtures/student-site/index.html')
     students_array = []
     student = {}
-    Nokogiri::HTML(open(index_url)).css(".roster-card-container .student-card").each do |s|
+    Nokogiri::HTML(index_url).css(".roster-card-container .student-card").each do |s|
       students = {
         :name => s.css("h4").text,
         :location => s.css("p").text,
-        :profile_url => s.css("a").text
+        :profile_url => s.css("a").attribute("href").value
       }
       students_array.push(student)
     end
