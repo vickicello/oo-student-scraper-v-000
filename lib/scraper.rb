@@ -29,7 +29,7 @@ class Scraper
         :github => page.find { |i| i.include?("github") },
         :blog => page.find { |i| !i.include?("twitter") && !i.include?("github") && !i.include?("linkedin") },
         profile[:profile_quote] = doc.css(".profile_quote").text
-        profile[:bio] => doc.css(".description-holder").css("p").text
+        profile[:bio] = doc.css(".description-holder").css("p").text
       }
 
   end
