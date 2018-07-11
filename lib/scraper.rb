@@ -35,7 +35,7 @@ class Scraper
       elsif l['href'].include?(".com")
         profile[:blog] = l['href']
       end
-  end
-  profile
-end
+    end
+      profile
+    end
 end
