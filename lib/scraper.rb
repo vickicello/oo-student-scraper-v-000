@@ -10,11 +10,11 @@ class Scraper
     doc =  Nokogiri::HTML(index_url)
     students_array = []
     student = {}
-    doc.css("div.roster-cards-container").each do |s|
-      student[:name] = s.css("h4").text,
-      student[:location] = s.css(".student-location").text,
-      student[:profile_url] = s.css("a").attribute("href").value
-      students_array << student
+    doc.css(".student-card").each do |s|
+      student_name = s.css("h4").text
+      student_location = s.css(".student-location").text,
+      profile_url = s.css("a").attribute("href").value
+      students_array << {:name => student_name, :location => student_location, :profile_url => profile_url}
     end
     students_array
   end
