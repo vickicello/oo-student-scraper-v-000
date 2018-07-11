@@ -20,19 +20,16 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    # profile_url =
-    # return value - hash in which the key/value pairs describe an individual student.
-    # Some students don't have a twitter/other social link. account for that
-    # attributes to scrape : twitter url, linkedin url, github url,
-    # blog url, profile quote, and bio.
-    # ex: => {:twitter=>"http://twitter.com/flatironschool",
-    #   :linkedin=>"https://www.linkedin.com/in/flatironschool",
-    #   :github=>"https://github.com/learn-co",
-    #   :blog=>"http://flatironschool.com",
-    #   :profile_quote=>"\"Be notorious.\" - Rumi",
-    #   :bio=> "I'm a school"
-    #  }
-
+    profile = {}
+    page = Nokogiri::HTML(open(profile_url)).css(".social-icon-container a").map { |i| i.attribute('href').value }
+      profile = {
+        :twitter => page.find { |i| i.include?("twitter") },
+        :linkedin => page.find { |i| i.include?("linkedin") },
+        :github => page.find { |i| i.include?("github") },
+        :blog => page.find { |i| !i.include?("twitter") && !i.include?("github") && !i.include?("linkedin") },
+        :profile_quote => Nokogiri::HTML(open(profile_url)).css("div.profile_quote").text
+        :bio => Nokogiri::HTML(open(profile_url)).css("p").text
+      }
   end
 
 end
