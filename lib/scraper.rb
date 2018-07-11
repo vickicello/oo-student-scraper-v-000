@@ -28,7 +28,7 @@ class Scraper
         :github => page.find { |i| i.include?("github") },
         :blog => page.find { |i| !i.include?("twitter") && !i.include?("github") && !i.include?("linkedin") },
         :profile_quote => Nokogiri::HTML(open(profile_url)).css("div.profile_quote").text
-        :bio => Nokogiri::HTML(open(profile_url)).css(".description-holder").css("p").text
+        :bio => Nokogiri::HTML(open(profile_url)).css("p").text
       }
 
   end
