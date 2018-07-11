@@ -1,6 +1,7 @@
+require 'nokogiri'
 require 'open-uri'
 require 'pry'
-require_relative './student.rb'
+
 
 class Scraper
 
@@ -28,10 +29,10 @@ class Scraper
     links.map do |l|
       if l['href'].include?("twitter")
         profile[:twitter] = l['href']
-      elsif l['href'].include?("github")
-        profile[:github] = l['href']
       elsif l['href'].include?("linkedin")
         profile[:linkedin] = l['href']
+      elsif l['href'].include?("github")
+        profile[:github] = l['href']
       elsif l['href'].include?(".com")
         profile[:blog] = l['href']
       end
