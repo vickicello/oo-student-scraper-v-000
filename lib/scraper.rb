@@ -6,9 +6,10 @@ class Scraper
   attr_accessor :name, :location, :profile_url
 
   def self.scrape_index_page(index_url)
-    index_url = "./fixtures/student-site/index.html"
-    #  use Nokogiri and Open-URI to access that page.
-    #  return value is array of hashes - each hash represents a single student.
+    student_array = []
+    students = {}
+    Nokogiri::HTML(open(index_url)).css
+
     #  The keys of the individual student hashes should be :name, :location and :profile_url.
 
   end
