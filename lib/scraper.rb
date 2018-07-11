@@ -25,8 +25,8 @@ class Scraper
     profile[:profile_quote] = doc.css(".profile_quote").text
     profile[:bio] = doc.css(".description-holder").css("p").text
     links = doc.css(".social-icon-container").css("a")
-    links.map do |l| 
-      if l['href'].include?("twitter") 
+    links.map do |l|
+      if l['href'].include?("twitter")
         profile[:twitter] = l['href']
       elsif l['href'].include?("github")
         profile[:github] = l['href']
@@ -35,6 +35,6 @@ class Scraper
       elsif l['href'].include?(".com")
         profile[:blog] = l['href']
       end
-
   end
+  profile
 end
